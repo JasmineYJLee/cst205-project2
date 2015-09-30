@@ -46,8 +46,21 @@ def encode_message(img, msg):
 #Whatever image we decide to use converted to .bmp
 ori_img = "fish.bmp" 
 img = Image.open(ori_img)
+encoded_img = "enc_" + ori_img
 
 #Message to encode into image
 msg = "Something"
 
-encode_message(img,msg)
+img_encoded = encode_message(img,msg)
+if img_encoded:
+     # save the image with the hidden text
+     import os
+     os.startfile(encoded_img)
+     print("{} saved!".format(encoded_img))
+     password = input('Enter password : ')
+     if(password==1234):
+          #print(password)
+          print("Secret Message : " + msg)  # test
+          img_encoded.save(encoded_img)
+          # view the saved file, works with Windows only
+          # behaves like double-clicking on the saved file
