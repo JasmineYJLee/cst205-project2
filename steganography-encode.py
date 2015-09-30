@@ -8,7 +8,7 @@ from PIL import Image
 
 #Definition to encode message into image.
 def encode_message(img, msg):
-    #Check message length
+    #Check message length & mode
     limit = len(msg)
 
     if(limit>255):
@@ -17,6 +17,31 @@ def encode_message(img, msg):
     if(img.mode != "RGB"):
         print("Image needs to be in RBG mode.")
         return False
+
+    #Creating image copy to encode
+    encoded = img.copy()
+    width, height = img.size
+    counter = 0
+    
+    for x in range(height):
+        for y in range(width):
+            #Variables holding pixel values
+            r, g, b = img.getpixel((y,x))
+            if x == 0 and y == 0 and counter < limit:
+                ascii_code = limit
+            elif counter <= limit:
+                char = msg[counter-1]
+                #Getting ASCII value
+                ascii_code = ord(char)
+            else:
+                #Set ascii value to red
+                ascii_code = r
+
+            #Encoding message into pixel red value
+            encoded.putpixel((y, x), (ascii_code, g, b))
+            counter += 1
+    print("Message has been encoded.")
+    return encoded
 
 #Whatever image we decide to use converted to .bmp
 ori_img = "fish.bmp" 
