@@ -53,14 +53,14 @@ msg = "Something"
 
 img_encoded = encode_message(img,msg)
 if img_encoded:
-     # save the image with the hidden text
-     import os
-     os.startfile(enc_img)
-     print("{} saved!".format(enc_img))
-     password = input('Enter password : ')
-     if(password==1234):
-          #print(password)
-          print("Secret Message : " + msg)  # test
-          img_encoded.save(enc_img)
-          # view the saved file, works with Windows only
-          # behaves like double-clicking on the saved file
+    #Save encoded image
+    import os
+    img_encoded.save(enc_img)
+    print("{} saved!".format(enc_img))
+    
+    #View the saved file, works with Windows only
+    os.startfile(enc_img)
+    password = input('Enter password : ')
+    
+    if(password=="1234"):
+        print("Secret Message : " + msg)
