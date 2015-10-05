@@ -60,7 +60,14 @@ if img_encoded:
     
     #View the saved file, works with Windows only
     os.startfile(enc_img)
-    password = input('Enter password : ')
-    
-    if(password=="1234"):
-        print("Secret Message : " + msg)
+
+    #Password Feature
+    mypassword = input('Set password : ')
+    password =  input('Enter password : ')
+
+    while(password!=mypassword):
+        print("Wrong password!!")
+        password =  input('Enter password : ')
+        
+        if(password==mypassword):
+           print("Secret Message : " + msg)
