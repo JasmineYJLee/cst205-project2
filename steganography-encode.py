@@ -44,7 +44,7 @@ def encode_message(img, msg):
     return encoded
 
 #Whatever image we decide to use converted to .bmp
-ori_img = "fish.bmp" 
+ori_img = "secret.bmp" 
 img = Image.open(ori_img)
 enc_img = "enc_" + ori_img
 
