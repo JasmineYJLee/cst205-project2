@@ -5,6 +5,7 @@ It will encode our message into the image.
 
 #Required module: PIL
 from PIL import Image
+import getpass
 
 #Definition to encode message into image.
 def encode_message(img, msg):
@@ -49,10 +50,10 @@ img = Image.open(ori_img)
 enc_img = "enc_" + ori_img
 
 #Message to encode into image
-msg = str(input("Set message: "))
+msg = getpass.getpass("Set message: ")
 
 #Set password
-mypassword = str(input('Set password: '))
+mypassword = getpass.getpass('Set password: ')
 
 img_encoded = encode_message(img,msg)
 if img_encoded:
@@ -65,7 +66,7 @@ if img_encoded:
     os.startfile(enc_img)
 
     #Password Feature
-    password =  input("Enter password: ")
+    password =  getpass.getpass("Enter password: ")
 
     while(password!=mypassword):
         print("Wrong password!\nTry again.")
