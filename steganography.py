@@ -11,9 +11,9 @@ import getpass
 #Definition to encode message into image
 def encode_message(img, msg):
     #Check message length & mode
-    limit = len(msg)
+    length = len(msg)
 
-    if(limit>255):
+    if(length>255):
         print("The message is too long. Keep it under 255 characters.")
         return False
     if(img.mode != "RGB"):
@@ -29,9 +29,10 @@ def encode_message(img, msg):
         for y in range(width):
             #Variables holding pixel values
             r, g, b = img.getpixel((y,x))
-            if x == 0 and y == 0 and counter < limit:
-                ascii_code = limit
-            elif counter <= limit:
+            if x == 0 and y == 0 and counter < length:
+                #First pixel will show message length
+                ascii_code = length
+            elif counter <= length:
                 char = msg[counter-1]
                 #Getting ASCII value
                 ascii_code = ord(char)
