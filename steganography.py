@@ -100,4 +100,5 @@ if img_encoded:
         img2 = Image.open(enc_img)
         secret_msg = decode_message(img2)
         print("Secret Message: " + secret_msg)
-        input("Press enter to exit.")
+#Wait for input to close
+input("Press enter to exit.")
