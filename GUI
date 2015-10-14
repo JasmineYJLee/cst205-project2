@@ -1,0 +1,54 @@
+import Tkinter
+import tkMessageBox
+
+#create a new window
+window=Tkinter.Tk()
+window.title("Welcome to Steganography")
+window.geometry("300x300")
+window.configure(background="#a1dbcd")
+
+def window3():
+    window3=Tkinter.Tk()
+    window3.title('Message')
+    window3.geometry("300x300")
+    window3.configure(background="#a1dbcd")
+    lbl4=Tkinter.Label(window3, text=ent2.get(), bg="#a1dbcd")
+    lbl4.pack()
+ 
+def passwordCheck():
+    if(ent1.get()==ent3.get()):
+        window3()
+        
+def window2():
+    window2=Tkinter.Tk()
+    window2.title("Welcome to Steganography")
+    window2.geometry("300x300")
+    window2.configure(background="#a1dbcd")
+    lbl3=Tkinter.Label(window2, text="Enter password", bg="#a1dbcd")
+    global ent3
+    ent3=Tkinter.Entry(window2)
+    lbl3.pack()
+    ent3.pack()
+    btn2=Tkinter.Button(window2, text="Login", fg="#a1dbcd", bg="#383a39", command=passwordCheck)
+    btn2.pack()
+
+
+    #password=Tkinter.Label(window2,ent1.get())
+    
+#create the widget for entering new password
+lbl1=Tkinter.Label(window, text="Set password", bg="#a1dbcd")
+ent1=Tkinter.Entry(window)
+lbl1.pack()
+ent1.pack()
+
+#create the widget for entering new message
+lbl2=Tkinter.Label(window, text="Set message", bg="#a1dbcd")
+ent2=Tkinter.Entry(window)
+lbl2.pack()
+ent2.pack()
+
+#create a button
+btn1=Tkinter.Button(window, text="Set", fg="#a1dbcd", bg="#383a39", command=window2)
+btn1.pack()
+
+window.mainloop()
